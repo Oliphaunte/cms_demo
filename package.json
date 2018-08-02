@@ -7,7 +7,7 @@
   "author": "Oliphaunte",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
+    "start": "NODE_ENV=production node index.js",
     "start:dev": "NODE_ENV=development nodemon index.js"
   },
   "engines": {
