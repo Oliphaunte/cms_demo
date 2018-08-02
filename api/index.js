@@ -27,7 +27,7 @@ const
 // Middleware
 app.keys = [process.env.KOA_KEY]
 app
-  .use(serve('public'))
+  .use(serve(path.resolve(__dirname, '../dist')))
   .use(formidable())
   .use(bodyParser())
   // Session/Auth
