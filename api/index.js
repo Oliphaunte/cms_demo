@@ -7,6 +7,7 @@ import session              from 'koa-session'
 import views                from 'koa-views'
 import passport             from 'koa-passport'
 import formidable           from 'koa2-formidable'
+import historyFallback      from 'koa2-history-api-fallback'
 
 import router               from './router'
 
@@ -27,6 +28,7 @@ const
 // Middleware
 app.keys = [process.env.KOA_KEY]
 app
+  .use(historyFallback({index: '/'}) )
   .use(serve(path.resolve(__dirname, '../dist')))
   .use(formidable())
   .use(bodyParser())
