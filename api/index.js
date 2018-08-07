@@ -39,6 +39,7 @@ app
   // Views
   .use(views(path.resolve(__dirname, '../dist/')))
   // Router
+  // .use(Controllers.initialize())
   .use(router.routes())
   .use(router.allowedMethods());
 

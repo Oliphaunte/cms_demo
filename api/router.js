@@ -19,7 +19,10 @@ router
   })
   .post('/auth/login', async (ctx) => {
     await passport.authenticate('local', passport_config, (err, user, info, status) => {
-      if (err || !user) return ctx.throw(401)
+      if (err || !user) {
+        ctx.status = 401
+        ctx.body = { status: 'Incorrect Credentials'}
+      }
       if (user) {
         ctx.login(user)
         return ctx.status = 200
